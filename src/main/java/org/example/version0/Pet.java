@@ -1,4 +1,4 @@
-package com.company.version0;
+package org.example.version0;
 
 import java.util.Arrays;
 

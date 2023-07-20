@@ -1,4 +1,4 @@
-package com.company.version0;
+package org.example.version0;
 
 public class Main {
     public static void main(String[] args) {

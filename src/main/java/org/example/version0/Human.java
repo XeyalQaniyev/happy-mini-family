@@ -1,4 +1,4 @@
-package com.company.version0;
+package org.example.version0;
 
 public class Human {
     public String name;
