@@ -15,12 +15,6 @@ public class Main {
         Human child1 = new Human("Max", "Doe", 5);
         Human child2 = new Human("Hamilton", "Doe", 3);
 
-        family.addChild(child1);
-        family.addChild(child2);
-
-        Pet pet = new Pet("Max", 3, "Roll over");
-        family.setPet(pet);
-
         System.out.println(family.toString());
 
         family.deleteChild(child1);

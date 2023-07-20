@@ -1,6 +1,5 @@
 package org.example.v1;
 
-
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -22,8 +21,6 @@ public class Pet {
         this.habits = habits;
     }
 
-    public Pet(String max, int i, String rollOver) {
-    }
 
     public String getSpecies() {
         return species;
