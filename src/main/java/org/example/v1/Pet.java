@@ -1,5 +1,8 @@
-package org.example;
+package org.example.v1;
 
+
+import java.util.Arrays;
+import java.util.Objects;
 
 public class Pet {
     private String species;
@@ -73,9 +76,21 @@ public class Pet {
 
     @Override
     public String toString() {
-        return "Pet{" +
-                "nickname='" + nickname + '\'' +
-                ", age=" + age +
-                '}';
+        return "Pet{" + "nickname='" + nickname + '\'' + ", age=" + age + '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Pet)) return false;
+        Pet pet = (Pet) o;
+        return getAge() == pet.getAge() && getTrickLevel() == pet.getTrickLevel() && Objects.equals(getSpecies(), pet.getSpecies()) && Objects.equals(getNickname(), pet.getNickname()) && Arrays.equals(getHabits(), pet.getHabits());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(getSpecies(), getNickname(), getAge(), getTrickLevel());
+        result = 31 * result + Arrays.hashCode(getHabits());
+        return result;
     }
 }

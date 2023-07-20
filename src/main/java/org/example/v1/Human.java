@@ -1,4 +1,4 @@
-package org.example;
+package org.example.v1;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -9,7 +9,7 @@ public class Human {
     private String surname;
     private int year;
     private int iq;
-//    private Pet pet;
+    //    private Pet pet;
 //    private Human mother;
 //    private Human father;
     private String[][] schedule;
@@ -65,13 +65,7 @@ public class Human {
 
     @Override
     public String toString() {
-        return "Human{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", year=" + year +
-                ", iq=" + iq +
-                ", schedule=" + Arrays.toString(schedule) +
-                '}';
+        return "Human{" + "name='" + name + '\'' + ", surname='" + surname + '\'' + ", year=" + year + ", iq=" + iq + ", schedule=" + Arrays.toString(schedule) + '}';
     }
 
     @Override
