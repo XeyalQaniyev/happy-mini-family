@@ -5,10 +5,19 @@ import java.util.Objects;
 import java.util.Random;
 
 public class Family {
-    private final Human father;
-    private final Human mother;
+    static {
+        System.out.println("Family class is being loaded");
+    }
+
+    private Human father;
+    private Human mother;
     private Pet pet;
     private Human[] children;
+
+    {
+        System.out.println("Family object is created");
+    }
+
 
     public Family(Human father, Human mother) {
         this.father = father;
@@ -20,6 +29,41 @@ public class Family {
         this.mother = mother;
         this.pet = pet;
         this.children = children;
+    }
+
+    public Family(Human father, Human mother, Pet pet) {
+        this.father = father;
+        this.mother = mother;
+        this.pet = pet;
+    }
+
+    public void adChild(Human child) {
+        Human[] newChildren = new Human[children.length + 1];
+        System.arraycopy(children, 0, newChildren, 0, children.length);
+        newChildren[children.length] = child;
+        children = newChildren;
+    }
+
+    public void deleteChildByIndex(int childIndex) {
+        Human[] newChildren = new Human[children.length - 1];
+        int count = 0;
+        for (int i = 0; i < children.length; i++) {
+            if (i != childIndex) {
+                newChildren[count] = children[i];
+                count++;
+            }
+        }
+        children = newChildren;
+    }
+
+    public boolean deleteChild(Human child) {
+
+
+        return false;
+    }
+
+    public int countFamily() {
+        return 2 + children.length;
     }
 
     public void greetPet() {
@@ -41,20 +85,27 @@ public class Family {
         } else if (!isfeed) {
             Random r = new Random();
             int rValue = r.nextInt(101);
-            if (pet.getTrickLevel() < rValue) System.out.println("I think Jack is not hungry.");
+            if (pet.getTrickLevel() < rValue) System.out.printf("I think %s is not hungry.", pet.getNickname());
             else if (pet.getTrickLevel() > rValue)
 //                System.out.println("Hm... I will feed Jack's "+pet.getNickname());
                 System.out.printf("Hm... I will feed %s", pet.getNickname());
         }
     }
 
-
     public Human getFather() {
         return father;
     }
 
+    public void setFather(Human father) {
+        this.father = father;
+    }
+
     public Human getMother() {
         return mother;
+    }
+
+    public void setMother(Human mother) {
+        this.mother = mother;
     }
 
     public Pet getPet() {
@@ -75,7 +126,7 @@ public class Family {
 
     @Override
     public String toString() {
-        return "Family{" + "father=" + father + ", mother=" + mother + ", pet=" + pet + ", children=" + Arrays.toString(children) + '}';
+        return "Family{" + "father=" + father + ", mother=" + mother + ", pet=" + pet + ", children=" + Arrays.deepToString(children) + '}';
     }
 
     @Override
