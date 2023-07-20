@@ -57,8 +57,14 @@ public class Family {
     }
 
     public boolean deleteChild(Human child) {
-
-
+        int i = 0;
+        for (Human human : children) {
+            if (human.equals(child)|| human.hashCode() == child.hashCode()){
+                deleteChildByIndex(i);
+                return true;
+            }
+            i++;
+        }
         return false;
     }
 

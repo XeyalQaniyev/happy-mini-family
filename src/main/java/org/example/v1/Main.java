@@ -37,6 +37,9 @@ public class Main {
 
         System.out.println(family.toString());
 
+        System.out.println(family.deleteChild(children[0]));
+        System.out.println(family.deleteChild(mother));
+
         family.getPet().respond();
         family.describePet();
         family.getPet().foul();
