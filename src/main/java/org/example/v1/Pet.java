@@ -22,6 +22,9 @@ public class Pet {
         this.habits = habits;
     }
 
+    public Pet(String max, int i, String rollOver) {
+    }
+
     public String getSpecies() {
         return species;
     }

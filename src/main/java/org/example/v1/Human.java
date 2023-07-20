@@ -3,19 +3,14 @@ package org.example.v1;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Human {
 
+public class Human {
     private String name;
     private String surname;
     private int year;
     private int iq;
-    //    private Pet pet;
-//    private Human mother;
-//    private Human father;
     private String[][] schedule;
-
-    public Human() {
-    }
+    private Family family;
 
     public Human(String name, String surname, int year) {
         this.name = name;
@@ -28,57 +23,92 @@ public class Human {
         this.surname = surname;
         this.year = year;
         this.iq = iq;
-//        this.pet = pet;
-//        this.mother = mother;
-//        this.father = father;
         this.schedule = schedule;
     }
 
-//    public void greetPet() {
-//        System.out.printf("Hello, %s\n", pet.getNickname());
-//    }
+    public String getName() {
+        return name;
+    }
 
-//    public void describePet() {
-//        if (pet.getTrickLevel() >= 50)
-//            System.out.printf("I have a %s, he is %s years old, he is very sly \n", pet.getSpecies(), pet.getAge());
-//        else
-//            System.out.printf("I have a %s, he is %s years old, he is almost not sly \n", pet.getSpecies(), pet.getAge());
-//
-//    }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-//    public void feedPet(boolean isfeed) {
-//        if (isfeed) {
-//            System.out.println("the owner feeds the pet ");
-//            System.out.printf("%s feeds %s", name, pet.getNickname());
-//        } else if (!isfeed) {
-//            Random r = new Random();
-//            int rValue = r.nextInt(101);
-//
-//            if (pet.getTrickLevel() < rValue) System.out.println("I think Jack is not hungry.");
-//            else if (pet.getTrickLevel() > rValue)
-////                System.out.println("Hm... I will feed Jack's "+pet.getNickname());
-//                System.out.printf("Hm... I will feed %s", pet.getNickname());
-//
-//        }
-//    }
+    public String getSurname() {
+        return surname;
+    }
 
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public int getIQ() {
+        return iq;
+    }
+
+    public void setIQ(int iq) {
+        this.iq = iq;
+    }
+
+    public String[][] getSchedule() {
+        return schedule;
+    }
+
+    public void setSchedule(String[][] schedule) {
+        this.schedule = schedule;
+    }
+
+    public Family getFamily() {
+        return family;
+    }
+
+    public void setFamily(Family family) {
+        this.family = family;
+    }
+
+    public void describeFavorite() {
+        System.out.println("My favorite is " + family.getPet().toString());
+    }
+
+    public void feed() {
+        System.out.println("Feeding " + family.getPet().toString());
+    }
 
     @Override
     public String toString() {
-        return "Human{" + "name='" + name + '\'' + ", surname='" + surname + '\'' + ", year=" + year + ", iq=" + iq + ", schedule=" + Arrays.toString(schedule) + '}';
+        return "Human{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", year=" + year +
+                ", iq=" + iq +
+                ", schedule=" + Arrays.deepToString(schedule) +
+                '}';
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Human)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         Human human = (Human) o;
-        return year == human.year && Objects.equals(name, human.name) && Objects.equals(surname, human.surname);
+        return year == human.year &&
+                iq == human.iq &&
+                Objects.equals(name, human.name) &&
+                Objects.equals(surname, human.surname) &&
+                Arrays.equals(schedule, human.schedule) &&
+                Objects.equals(family, human.family);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(name, surname, year, iq);
+        int result = Objects.hash(name, surname, year, iq, family);
         result = 31 * result + Arrays.hashCode(schedule);
         return result;
     }
