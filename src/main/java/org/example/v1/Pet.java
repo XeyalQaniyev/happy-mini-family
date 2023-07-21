@@ -8,19 +8,18 @@ public class Pet {
     private String nickname;
     private int age;
     private int trickLevel;
-    private String[] habits;
+    private ExtracurricularActivities[][] schedule;
 
     public Pet() {
     }
 
-    public Pet(String species, String nickname, int age, int trickLevel, String[] habits) {
+    public Pet(String species, String nickname, int age, int trickLevel, ExtracurricularActivities[][] schedule) {
         this.species = species;
         this.nickname = nickname;
         this.age = age;
         this.trickLevel = trickLevel;
-        this.habits = habits;
+        this.schedule = schedule;
     }
-
 
     public String getSpecies() {
         return species;
@@ -54,13 +53,14 @@ public class Pet {
         this.trickLevel = trickLevel;
     }
 
-    public String[] getHabits() {
-        return habits;
+    public ExtracurricularActivities[][] getSchedule() {
+        return schedule;
     }
 
-    public void setHabits(String[] habits) {
-        this.habits = habits;
+    public void setSchedule(ExtracurricularActivities[][] schedule) {
+        this.schedule = schedule;
     }
+
 
     public void eat() {
         System.out.println("eating");
@@ -84,13 +84,13 @@ public class Pet {
         if (this == o) return true;
         if (!(o instanceof Pet)) return false;
         Pet pet = (Pet) o;
-        return getAge() == pet.getAge() && getTrickLevel() == pet.getTrickLevel() && Objects.equals(getSpecies(), pet.getSpecies()) && Objects.equals(getNickname(), pet.getNickname()) && Arrays.equals(getHabits(), pet.getHabits());
+        return getAge() == pet.getAge() && getTrickLevel() == pet.getTrickLevel() && Objects.equals(getSpecies(), pet.getSpecies()) && Objects.equals(getNickname(), pet.getNickname()) && Arrays.equals(getSchedule(), pet.getSchedule());
     }
 
     @Override
     public int hashCode() {
         int result = Objects.hash(getSpecies(), getNickname(), getAge(), getTrickLevel());
-        result = 31 * result + Arrays.hashCode(getHabits());
+        result = 31 * result + Arrays.hashCode(getSchedule());
         return result;
     }
 }
