@@ -9,7 +9,7 @@ public class Human {
     private int year;
     private int iq;
 
-    private String[][] schedule;
+    private DayOfWeek[][] schedule;
 
     public Human() {
     }
@@ -20,12 +20,11 @@ public class Human {
         this.year = year;
     }
 
-    public Human(String name, String surname, int year, int iq, String[][] schedule) {
+    public Human(String name, String surname, int year, int iq, DayOfWeek[][] schedule) {
         this.name = name;
         this.surname = surname;
         this.year = year;
         this.iq = iq;
-
         this.schedule = schedule;
     }
 
@@ -61,11 +60,11 @@ public class Human {
         this.iq = iq;
     }
 
-    public String[][] getSchedule() {
+    public DayOfWeek[][] getSchedule() {
         return schedule;
     }
 
-    public void setSchedule(String[][] schedule) {
+    public void setSchedule(DayOfWeek[][] schedule) {
         this.schedule = schedule;
     }
 
@@ -82,13 +81,13 @@ public class Human {
         if (this == o) return true;
         if (!(o instanceof Human)) return false;
         Human human = (Human) o;
-        return year == human.year && Objects.equals(name, human.name) && Objects.equals(surname, human.surname);
+        return getYear() == human.getYear() && getIq() == human.getIq() && Objects.equals(getName(), human.getName()) && Objects.equals(getSurname(), human.getSurname()) && Arrays.equals(getSchedule(), human.getSchedule());
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(name, surname, year, iq);
-        result = 31 * result + Arrays.hashCode(schedule);
+        int result = Objects.hash(getName(), getSurname(), getYear(), getIq());
+        result = 31 * result + Arrays.hashCode(getSchedule());
         return result;
     }
 

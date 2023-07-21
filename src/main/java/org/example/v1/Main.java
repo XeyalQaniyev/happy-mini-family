@@ -20,8 +20,15 @@ public class Main {
         family.deleteChild(child1);
         System.out.println(family.toString());
 
-        for (int i = 10_000; i <10_000_000 ; i++) {
-          new Human();
-        }
+        DayOfWeek schedule [][] = {
+                {DayOfWeek.MONDAY, DayOfWeek.WEDNESDAY, DayOfWeek.FRIDAY},
+                {DayOfWeek.TUESDAY, DayOfWeek.THURSDAY},
+                {DayOfWeek.SATURDAY},
+                {DayOfWeek.SUNDAY}
+        };
+
+//        for (int i = 10_000; i <10_000_000 ; i++) {
+//          new Human();
+//        }
     }
 }
