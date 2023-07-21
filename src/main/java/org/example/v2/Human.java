@@ -1,4 +1,4 @@
-package org.example.v1;
+package org.example.v2;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -26,6 +26,9 @@ public class Human {
         this.year = year;
         this.iq = iq;
         this.schedule = schedule;
+    }
+
+    public Human(String name, String surname, int i, int i1) {
     }
 
     public String getName() {

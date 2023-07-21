@@ -1,4 +1,4 @@
-package org.example.v1;
+package org.example.v2;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -29,7 +29,7 @@ public class Family {
         this.children = new Human[0];
     }
 
-    public void adChild(Human child) {
+    public void addChild(Human child) {
         Human[] newChildren = new Human[children.length + 1];
         System.arraycopy(children, 0, newChildren, 0, children.length);
         newChildren[children.length] = child;

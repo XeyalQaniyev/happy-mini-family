@@ -1,19 +1,14 @@
-package org.example.v1;
+package org.example.v2;
 
 import java.util.Arrays;
 import java.util.Objects;
 
 public class Pet {
-    private String species;
+    private PetSpecies species;
     private String nickname;
     private int age;
-    private int trickLevel;
-    private ExtracurricularActivities[][] schedule;
 
-    public Pet() {
-    }
-
-    public Pet(String species, String nickname, int age, int trickLevel, ExtracurricularActivities[][] schedule) {
+    public Pet(PetSpecies species, String nickname, int age, int trickLevel, ExtracurricularActivities[][] schedule) {
         this.species = species;
         this.nickname = nickname;
         this.age = age;
@@ -21,11 +16,18 @@ public class Pet {
         this.schedule = schedule;
     }
 
-    public String getSpecies() {
+    private int trickLevel;
+    private ExtracurricularActivities[][] schedule;
+
+    public Pet() {
+    }
+
+
+    public PetSpecies getSpecies() {
         return species;
     }
 
-    public void setSpecies(String species) {
+    public void setSpecies(PetSpecies species) {
         this.species = species;
     }
 

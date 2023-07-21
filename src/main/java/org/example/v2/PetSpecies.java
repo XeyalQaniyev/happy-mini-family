@@ -1,4 +1,4 @@
-package org.example.v1;
+package org.example.v2;
 
 public enum PetSpecies {
     CAT("Cat"),
