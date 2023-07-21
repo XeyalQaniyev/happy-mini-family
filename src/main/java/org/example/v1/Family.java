@@ -10,10 +10,6 @@ public class Family {
     private Pet pet;
     private Human[] children;
 
-    public Family(Human father, Human mother) {
-        this.father = father;
-        this.mother = mother;
-    }
 
     public Family(Human father, Human mother, Pet pet, Human[] children) {
         this.father = father;
@@ -26,6 +22,11 @@ public class Family {
         this.father = father;
         this.mother = mother;
         this.pet = pet;
+    }
+    public Family(Human father, Human mother) {
+        this.father = father;
+        this.mother = mother;
+        this.children = new Human[0];
     }
 
     public void adChild(Human child) {
@@ -117,7 +118,7 @@ public class Family {
     }
 
     public void setChildren(Human[] children) {
-        this.children = children;
+        this.children = (children != null) ? children : new Human[0];
     }
 
     @Override
@@ -146,5 +147,10 @@ public class Family {
         int result = Objects.hash(getFather(), getMother(), getPet());
         result = 31 * result + Arrays.hashCode(getChildren());
         return result;
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.out.println("Garbage collector running in Family");
     }
 }

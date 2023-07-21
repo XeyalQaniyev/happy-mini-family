@@ -91,4 +91,9 @@ public class Human {
         result = 31 * result + Arrays.hashCode(schedule);
         return result;
     }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.out.println("Garbage Collector running in Human ");
+    }
 }

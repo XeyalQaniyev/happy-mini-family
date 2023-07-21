@@ -19,5 +19,9 @@ public class Main {
 
         family.deleteChild(child1);
         System.out.println(family.toString());
+
+        for (int i = 10_000; i <10_000_000 ; i++) {
+          new Human();
+        }
     }
 }

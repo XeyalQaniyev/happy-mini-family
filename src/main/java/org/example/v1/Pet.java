@@ -93,4 +93,9 @@ public class Pet {
         result = 31 * result + Arrays.hashCode(getSchedule());
         return result;
     }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.out.println("Garbage Collector running in Pet");
+    }
 }
