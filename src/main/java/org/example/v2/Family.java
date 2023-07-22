@@ -18,7 +18,6 @@ public class Family {
         System.out.println("Family object is created");
     }
 
-
     public Family(Human father, Human mother) {
         this.father = father;
         this.mother = mother;
@@ -36,17 +35,8 @@ public class Family {
         this.mother = mother;
         this.pet = pet;
     }
-
-//    public void addChild(Human child) {
-//        Human[] newChildren = Arrays.copyOf(children, children.length + 1);
-//        newChildren[children.length] = child;
-//        children = newChildren;
-//    }
     public void addChild(Human child) {
         Human[] newChildren;
-//        if (children==null){
-//            newChildren=new Human[]{child};
-//        }else{
              newChildren = new Human[children.length + 1];
             System.arraycopy(children, 0, newChildren, 0, children.length);
             newChildren[children.length] = child;
@@ -105,14 +95,12 @@ public class Family {
 
     public void feedPet(boolean isfeed) {
         if (isfeed) {
-//            System.out.println("the owner feeds the pet ");
             System.out.printf("I feeds %s", pet.getNickname());
         } else if (!isfeed) {
             Random r = new Random();
             int rValue = r.nextInt(101);
             if (pet.getTrickLevel() < rValue) System.out.printf("I think %s is not hungry.", pet.getNickname());
             else if (pet.getTrickLevel() > rValue)
-//                System.out.println("Hm... I will feed Jack's "+pet.getNickname());
                 System.out.printf("Hm... I will feed %s", pet.getNickname());
         }
     }
