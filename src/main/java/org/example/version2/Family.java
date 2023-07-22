@@ -94,23 +94,6 @@ public class Family {
         children = updatedChildren;
     }
 
-
-//    public void deleteChild(int index) {
-//        if (index < 0 || index >= children.length) {
-//            return;
-//        }
-//
-//        Human[] updatedChildren = new Human[children.length - 1];
-//        int currentIndex = 0;
-//        for (int i = 0; i < children.length; i++) {
-//            if (i != index) {
-//                updatedChildren[currentIndex] = children[i];
-//                currentIndex++;
-//            }
-//        }
-//        children = updatedChildren;
-//    }
-
     public int countFamily() {
         return children.length + 2;
     }
