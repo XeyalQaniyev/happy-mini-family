@@ -5,8 +5,6 @@ public enum ExtracurricularActivities {
     RESPOND("What are you doing"),
     SLEEP("Sleep"),
     WALK("Walk");
-
-
     private final String activity;
     ExtracurricularActivities(String activity) {
         this.activity=activity;

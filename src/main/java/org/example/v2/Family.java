@@ -10,14 +10,12 @@ public class Family {
     private Pet pet;
     private Human[] children;
 
-
     public Family(Human father, Human mother, Pet pet, Human[] children) {
         this.father = father;
         this.mother = mother;
         this.pet = pet;
         this.children = children;
     }
-
     public Family(Human father, Human mother, Pet pet) {
         this.father = father;
         this.mother = mother;
@@ -28,14 +26,20 @@ public class Family {
         this.mother = mother;
         this.children = new Human[0];
     }
+    public Family() {
 
-    public void addChild(Human child) {
-        Human[] newChildren = new Human[children.length + 1];
-        System.arraycopy(children, 0, newChildren, 0, children.length);
-        newChildren[children.length] = child;
-        children = newChildren;
     }
-
+    public void addChild(Human child) {
+        if (children == null) {
+            children = new Human[1];
+            children[0] = child;
+        } else {
+            Human[] newChildren = new Human[children.length + 1];
+            System.arraycopy(children, 0, newChildren, 0, children.length);
+            newChildren[children.length] = child;
+            children = newChildren;
+        }
+    }
     public void deleteChildByIndex(int childIndex) {
         Human[] newChildren = new Human[children.length - 1];
         int count = 0;
@@ -47,7 +51,6 @@ public class Family {
         }
         children = newChildren;
     }
-
     public boolean deleteChild(Human child) {
         int i = 0;
         for (Human human : children) {
@@ -59,22 +62,19 @@ public class Family {
         }
         return false;
     }
-
     public int countFamily() {
         return 2 + children.length;
     }
-
     public void greetPet() {
         System.out.printf("Hello, %s\n", pet.getNickname());
     }
-
     public void describePet() {
         if (pet.getTrickLevel() >= 50)
             System.out.printf("I have a %s, he is %s years old, he is very sly\n", pet.getSpecies(), pet.getAge());
         else
-            System.out.printf("I have a %s, he is %s years old, he is almost not sly\n", pet.getSpecies(), pet.getAge());
+            System.out.printf("I have a %s, he is %s years old, he is almost not sly\n",
+                    pet.getSpecies(), pet.getAge());
     }
-
     public void feedPet(boolean isfeed) {
         if (isfeed) {
             System.out.printf("I feed %s\n", pet.getNickname());
@@ -88,39 +88,30 @@ public class Family {
             }
         }
     }
-
     public Human getFather() {
         return father;
     }
-
     public void setFather(Human father) {
         this.father = father;
     }
-
     public Human getMother() {
         return mother;
     }
-
     public void setMother(Human mother) {
         this.mother = mother;
     }
-
     public Pet getPet() {
         return pet;
     }
-
     public void setPet(Pet pet) {
         this.pet = pet;
     }
-
     public Human[] getChildren() {
         return children;
     }
-
     public void setChildren(Human[] children) {
         this.children = (children != null) ? children : new Human[0];
     }
-
     @Override
     public String toString() {
         return "Family{" +
@@ -130,7 +121,6 @@ public class Family {
                 ", children=" + Arrays.deepToString(children) +
                 '}';
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -141,14 +131,12 @@ public class Family {
                 Objects.equals(getPet(), family.getPet()) &&
                 Arrays.equals(getChildren(), family.getChildren());
     }
-
     @Override
     public int hashCode() {
         int result = Objects.hash(getFather(), getMother(), getPet());
         result = 31 * result + Arrays.hashCode(getChildren());
         return result;
     }
-
     @Override
     protected void finalize() throws Throwable {
         System.out.println("Garbage collector running in Family");
