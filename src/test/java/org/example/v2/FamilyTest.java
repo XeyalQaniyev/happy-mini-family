@@ -1,7 +1,6 @@
 package org.example.v2;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -125,7 +124,7 @@ public class FamilyTest {
 
     @Test
     void countFamilyWhenChildrenExist() {
-        int expectedCount = 7; // 2 parents + 5 children
+        int expectedCount = 7;
         int actualCount = family.countFamily();
         assertEquals(expectedCount, actualCount);
     }
@@ -133,7 +132,7 @@ public class FamilyTest {
     @Test
     void countFamilyAfterDeletingChild() {
         family.deleteChild(2);
-        int expectedCount = 7 - 1; // original count - 1 deleted child
+        int expectedCount = 7 - 1;
         int actualCount = family.countFamily();
         assertEquals(expectedCount, actualCount);
     }
