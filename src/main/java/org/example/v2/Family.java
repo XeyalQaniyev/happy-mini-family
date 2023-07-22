@@ -1,4 +1,4 @@
-package org.example.v1;
+package org.example.v2;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -12,7 +12,7 @@ public class Family {
     private Human father;
     private Human mother;
     private Pet pet;
-    private Human[] children;
+    private Human [] children = new Human[0];
 
     {
         System.out.println("Family object is created");
@@ -37,14 +37,26 @@ public class Family {
         this.pet = pet;
     }
 
+//    public void addChild(Human child) {
+//        Human[] newChildren = Arrays.copyOf(children, children.length + 1);
+//        newChildren[children.length] = child;
+//        children = newChildren;
+//    }
     public void addChild(Human child) {
-        Human[] newChildren = new Human[children.length + 1];
-        System.arraycopy(children, 0, newChildren, 0, children.length);
-        newChildren[children.length] = child;
+        Human[] newChildren;
+//        if (children==null){
+//            newChildren=new Human[]{child};
+//        }else{
+             newChildren = new Human[children.length + 1];
+            System.arraycopy(children, 0, newChildren, 0, children.length);
+            newChildren[children.length] = child;
+//        }
+
         children = newChildren;
     }
 
     public void deleteChildByIndex(int childIndex) {
+        if (children.length-1<childIndex) return;
 
         Human[] newChildren = new Human[children.length - 1];
         int count = 0;
@@ -57,14 +69,20 @@ public class Family {
         children = newChildren;
     }
 
+    public boolean deleteChild(int index) {
+        if (index >= 0 && index < children.length) {
+            deleteChildByIndex(index);
+            return true;
+        }
+        return false;
+    }
+
     public boolean deleteChild(Human child) {
-        int i = 0;
-        for (Human human : children) {
-            if (human.equals(child) || human.hashCode() == child.hashCode()) {
+        for (int i = 0; i < children.length; i++) {
+            if (children[i].equals(child)) {
                 deleteChildByIndex(i);
                 return true;
             }
-            i++;
         }
         return false;
     }
@@ -149,5 +167,10 @@ public class Family {
         int result = Objects.hash(getFather(), getMother(), getPet());
         result = 31 * result + Arrays.hashCode(getChildren());
         return result;
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.out.println("GC is running in Family class");
     }
 }

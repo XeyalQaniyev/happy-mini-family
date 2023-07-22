@@ -32,13 +32,18 @@ public class Main {
         Family family = new Family(father, mother, pet, children);
         Human child3 = new Human("Child3", "Akifzade", 2009, 112, new String[][]{{"Thursday", "School"}, {"Friday", "Sport Section"}});
 
-        family.adChild(child3);
+        family.addChild(child3);
         System.out.println(Arrays.deepToString(family.getChildren()));
 
-        System.out.println(family.toString());
+        System.out.println(family.countFamily());
 
         System.out.println(family.deleteChild(children[0]));
+        System.out.println(Arrays.deepToString(family.getChildren()));
+        System.out.println(family.deleteChild(children[1]));
+        System.out.println(Arrays.deepToString(family.getChildren()));
         System.out.println(family.deleteChild(mother));
+
+        System.out.println(family.countFamily());
 
         family.getPet().respond();
         family.describePet();

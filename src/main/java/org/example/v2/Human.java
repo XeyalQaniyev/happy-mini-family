@@ -1,4 +1,4 @@
-package org.example.v1;
+package org.example.v2;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -25,39 +25,8 @@ public class Human {
         this.surname = surname;
         this.year = year;
         this.iq = iq;
-//        this.pet = pet;
-//        this.mother = mother;
-//        this.father = father;
         this.schedule = schedule;
     }
-
-//    public void greetPet() {
-//        System.out.printf("Hello, %s\n", pet.getNickname());
-//    }
-
-//    public void describePet() {
-//        if (pet.getTrickLevel() >= 50)
-//            System.out.printf("I have a %s, he is %s years old, he is very sly \n", pet.getSpecies(), pet.getAge());
-//        else
-//            System.out.printf("I have a %s, he is %s years old, he is almost not sly \n", pet.getSpecies(), pet.getAge());
-//
-//    }
-
-//    public void feedPet(boolean isfeed) {
-//        if (isfeed) {
-//            System.out.println("the owner feeds the pet ");
-//            System.out.printf("%s feeds %s", name, pet.getNickname());
-//        } else if (!isfeed) {
-//            Random r = new Random();
-//            int rValue = r.nextInt(101);
-//
-//            if (pet.getTrickLevel() < rValue) System.out.println("I think Jack is not hungry.");
-//            else if (pet.getTrickLevel() > rValue)
-////                System.out.println("Hm... I will feed Jack's "+pet.getNickname());
-//                System.out.printf("Hm... I will feed %s", pet.getNickname());
-//
-//        }
-//    }
 
     public String getName() {
         return name;
@@ -119,5 +88,8 @@ public class Human {
         return result;
     }
 
-
+    @Override
+    protected void finalize() throws Throwable {
+        System.out.println("GC is running in Human class");
+    }
 }
