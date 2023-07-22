@@ -40,8 +40,6 @@ public class Family {
              newChildren = new Human[children.length + 1];
             System.arraycopy(children, 0, newChildren, 0, children.length);
             newChildren[children.length] = child;
-//        }
-
         children = newChildren;
     }
 
