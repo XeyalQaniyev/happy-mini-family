@@ -1,15 +1,22 @@
 package org.example.v2;
-
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Random;
-
 public class Family {
+    static {
+        System.out.println("Family class is being loaded");
+    }
     private Human father;
     private Human mother;
     private Pet pet;
-    private Human[] children;
-
+    private Human [] children = new Human[0];
+    {
+        System.out.println("Family object is created");
+    }
+    public Family(Human father, Human mother) {
+        this.father = father;
+        this.mother = mother;
+    }
     public Family(Human father, Human mother, Pet pet, Human[] children) {
         this.father = father;
         this.mother = mother;
@@ -21,26 +28,15 @@ public class Family {
         this.mother = mother;
         this.pet = pet;
     }
-    public Family(Human father, Human mother) {
-        this.father = father;
-        this.mother = mother;
-        this.children = new Human[0];
-    }
-    public Family() {
-
-    }
     public void addChild(Human child) {
-        if (children == null) {
-            children = new Human[1];
-            children[0] = child;
-        } else {
-            Human[] newChildren = new Human[children.length + 1];
-            System.arraycopy(children, 0, newChildren, 0, children.length);
-            newChildren[children.length] = child;
-            children = newChildren;
-        }
+        Human[] newChildren;
+        newChildren = new Human[children.length + 1];
+        System.arraycopy(children, 0, newChildren, 0, children.length);
+        newChildren[children.length] = child;
+        children = newChildren;
     }
     public void deleteChildByIndex(int childIndex) {
+        if (children.length-1<childIndex) return;
         Human[] newChildren = new Human[children.length - 1];
         int count = 0;
         for (int i = 0; i < children.length; i++) {
@@ -51,14 +47,19 @@ public class Family {
         }
         children = newChildren;
     }
+    public boolean deleteChild(int index) {
+        if (index >= 0 && index < children.length) {
+            deleteChildByIndex(index);
+            return true;
+        }
+        return false;
+    }
     public boolean deleteChild(Human child) {
-        int i = 0;
-        for (Human human : children) {
-            if (human.equals(child) || human.hashCode() == child.hashCode()) {
+        for (int i = 0; i < children.length; i++) {
+            if (children[i].equals(child)) {
                 deleteChildByIndex(i);
                 return true;
             }
-            i++;
         }
         return false;
     }
@@ -70,22 +71,19 @@ public class Family {
     }
     public void describePet() {
         if (pet.getTrickLevel() >= 50)
-            System.out.printf("I have a %s, he is %s years old, he is very sly\n", pet.getSpecies(), pet.getAge());
+            System.out.printf("I have a %s, he is %s years old, he is very sly \n", pet.getSpecies(), pet.getAge());
         else
-            System.out.printf("I have a %s, he is %s years old, he is almost not sly\n",
-                    pet.getSpecies(), pet.getAge());
+            System.out.printf("I have a %s, he is %s years old, he is almost not sly \n", pet.getSpecies(), pet.getAge());
     }
     public void feedPet(boolean isfeed) {
         if (isfeed) {
-            System.out.printf("I feed %s\n", pet.getNickname());
+            System.out.printf("I feeds %s", pet.getNickname());
         } else if (!isfeed) {
             Random r = new Random();
             int rValue = r.nextInt(101);
-            if (pet.getTrickLevel() < rValue) {
-                System.out.printf("I think %s is not hungry.\n", pet.getNickname());
-            } else if (pet.getTrickLevel() > rValue) {
-                System.out.printf("Hm... I will feed %s\n", pet.getNickname());
-            }
+            if (pet.getTrickLevel() < rValue) System.out.printf("I think %s is not hungry.", pet.getNickname());
+            else if (pet.getTrickLevel() > rValue)
+                System.out.printf("Hm... I will feed %s", pet.getNickname());
         }
     }
     public Human getFather() {
@@ -110,26 +108,20 @@ public class Family {
         return children;
     }
     public void setChildren(Human[] children) {
-        this.children = (children != null) ? children : new Human[0];
+        this.children = children;
     }
     @Override
     public String toString() {
-        return "Family{" +
-                "father=" + father +
-                ", mother=" + mother +
-                ", pet=" + pet +
-                ", children=" + Arrays.deepToString(children) +
-                '}';
+        return "Family{" + "father=" + father + ", mother=" + mother + ", pet=" + pet + ", children=" + Arrays.deepToString(children) + '}';
     }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Family)) return false;
         Family family = (Family) o;
-        return Objects.equals(getFather(), family.getFather()) &&
-                Objects.equals(getMother(), family.getMother()) &&
-                Objects.equals(getPet(), family.getPet()) &&
-                Arrays.equals(getChildren(), family.getChildren());
+        return Objects.equals(getFather(), family.getFather()) && Objects.equals(getMother(),
+                family.getMother()) && Objects.equals(getPet(),
+                family.getPet()) && Arrays.equals(getChildren(), family.getChildren());
     }
     @Override
     public int hashCode() {
@@ -139,6 +131,6 @@ public class Family {
     }
     @Override
     protected void finalize() throws Throwable {
-        System.out.println("Garbage collector running in Family");
+        System.out.println("GC is running in Family class");
     }
 }
