@@ -70,7 +70,8 @@ public class Human {
 
     @Override
     public String toString() {
-        return "Human{" + "name='" + name + '\'' + ", surname='" + surname + '\'' + ", year=" + year + ", iq=" + iq + ", schedule=" + Arrays.deepToString(schedule) + '}';
+        return "Human{" + "name='" + name + '\'' + ", surname='" + surname + '\'' +
+                ", year=" + year + ", iq=" + iq + ", schedule=" + Arrays.deepToString(schedule) + '}';
     }
 
     @Override

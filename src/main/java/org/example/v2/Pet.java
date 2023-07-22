@@ -84,7 +84,9 @@ public class Pet {
         if (this == o) return true;
         if (!(o instanceof Pet)) return false;
         Pet pet = (Pet) o;
-        return getAge() == pet.getAge() && getTrickLevel() == pet.getTrickLevel() && Objects.equals(getSpecies(), pet.getSpecies()) && Objects.equals(getNickname(), pet.getNickname()) && Arrays.equals(getHabits(), pet.getHabits());
+        return getAge() == pet.getAge() && getTrickLevel() == pet.getTrickLevel() &&
+                Objects.equals(getSpecies(), pet.getSpecies()) &&
+                Objects.equals(getNickname(), pet.getNickname()) && Arrays.equals(getHabits(), pet.getHabits());
     }
 
     @Override
