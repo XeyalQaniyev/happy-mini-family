@@ -4,6 +4,13 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Family {
+
+    static {
+        System.out.println("Family class is being loaded...");
+    }
+    {
+        System.out.println("A new object is created (type: " + getClass().getSimpleName() + ")");
+    }
     private Human father;
     private Human mother;
     private Pet pet;
