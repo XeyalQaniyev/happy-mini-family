@@ -3,9 +3,10 @@ package org.example.v2;
 
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.Random;
 
 public class Pet {
-    private PetSpecies species;
+    private PetSpecie species;
     private String nickname;
     private int age;
     private int trickLevel;
@@ -14,7 +15,7 @@ public class Pet {
     public Pet() {
     }
 
-    public Pet(PetSpecies species, String nickname, int age, int trickLevel, String[] habits) {
+    public Pet(PetSpecie species, String nickname, int age, int trickLevel, String[] habits) {
         this.species = species;
         this.nickname = nickname;
         this.age = age;
@@ -22,11 +23,11 @@ public class Pet {
         this.habits = habits;
     }
 
-    public PetSpecies getSpecies() {
+    public PetSpecie getSpecies() {
         return species;
     }
 
-    public void setSpecies(PetSpecies species) {
+    public void setSpecies(PetSpecie species) {
         this.species = species;
     }
 
@@ -74,9 +75,31 @@ public class Pet {
         System.out.println("I need to cover it up");
     }
 
+    public void describePet() {
+        if (getTrickLevel() >= 50)
+            System.out.printf("I have a %s, he is %s years old, he is very sly \n", getSpecies(), getAge());
+        else System.out.printf("I have a %s, he is %s years old, he is almost not sly \n", getSpecies(), getAge());
+
+    }
+
+    public void feedPet(boolean isfeed) {
+        if (isfeed) {
+            System.out.printf("I feeds %s", getNickname());
+        } else if (!isfeed) {
+            Random r = new Random();
+            int rValue = r.nextInt(101);
+            if (getTrickLevel() < rValue) System.out.printf("I think %s is not hungry.", getNickname());
+            else if (getTrickLevel() > rValue) System.out.printf("Hm... I will feed %s", getNickname());
+        }
+    }
+
+    public void greetPet() {
+        System.out.printf("Hello, %s\n", getNickname());
+    }
+
     @Override
     public String toString() {
-        return "Pet{" + "nickname='" + nickname + '\'' + ", age=" + age + '}';
+        return "Pet{" + "nickname= '" + nickname + '\'' + ", age= " + age + ", species= " + species + '}';
     }
 
     @Override
@@ -84,9 +107,7 @@ public class Pet {
         if (this == o) return true;
         if (!(o instanceof Pet)) return false;
         Pet pet = (Pet) o;
-        return getAge() == pet.getAge() && getTrickLevel() == pet.getTrickLevel() &&
-                Objects.equals(getSpecies(), pet.getSpecies()) &&
-                Objects.equals(getNickname(), pet.getNickname()) && Arrays.equals(getHabits(), pet.getHabits());
+        return getAge() == pet.getAge() && getTrickLevel() == pet.getTrickLevel() && Objects.equals(getSpecies(), pet.getSpecies()) && Objects.equals(getNickname(), pet.getNickname()) && Arrays.equals(getHabits(), pet.getHabits());
     }
 
     @Override
@@ -100,4 +121,5 @@ public class Pet {
     protected void finalize() throws Throwable {
         System.out.println("GC is running in Pet class");
     }
+
 }

@@ -9,35 +9,27 @@ public class Main {
         father.setIq(135);
         father.setYear(1985);
         father.setSurname("Akifzade");
-        father.setSchedule(new String[][]{{DayOfWeek.MONDAY.toString(), "Word"},
-                {DayOfWeek.THURSDAY.toString(), "work"}});
+        father.setSchedule(new String[][]{{DayOfWeek.MONDAY.toString(), HumanActivity.WORKING.toString()}, {DayOfWeek.THURSDAY.toString(), HumanActivity.WORKING.toString()}});
 
         Human mother = new Human();
         mother.setName("Name");
         mother.setSurname("namezade");
         mother.setIq(135);
-        mother.setSchedule(new String[][]{{DayOfWeek.MONDAY.toString(), "Word"},
-                {DayOfWeek.THURSDAY.toString(), "work"}});
+        mother.setSchedule(new String[][]{{DayOfWeek.MONDAY.toString(), HumanActivity.WORKING.toString()}, {DayOfWeek.THURSDAY.toString(), HumanActivity.WORKING.toString()}});
 
         Pet pet = new Pet();
         pet.setNickname("Tiger");
-        pet.setSpecies(PetSpecies.Cat);
+        pet.setSpecies(PetSpecie.CAT);
         pet.setAge(3);
         pet.setHabits(new String[]{"eat", "drink", "sleep"});
         pet.setTrickLevel(75);
 
         Human[] children = new Human[2];
-        children[0] = new Human("Child1", "Akifzade",
-                1998, 100, new String[][]{{DayOfWeek.MONDAY.toString(),
-                "School"}, {DayOfWeek.FRIDAY.toString(), "Sport Section"}});
-        children[1] = new Human("Child2", "Akifzade", 2008,
-                75, new String[][]{{DayOfWeek.MONDAY.toString(), "School"},
-                {DayOfWeek.FRIDAY.toString(), "Sport Section"}});
+        children[0] = new Human("Child1", "Akifzade", 1998, 100, new String[][]{{DayOfWeek.MONDAY.toString(), HumanActivity.WALKING.toString()}, {DayOfWeek.FRIDAY.toString(), HumanActivity.GAMEPLAY.toString()}});
+        children[1] = new Human("Child2", "Akifzade", 2008, 75, new String[][]{{DayOfWeek.MONDAY.toString(), HumanActivity.SCHOOL.toString()}, {DayOfWeek.FRIDAY.toString(), HumanActivity.GYM.toString()}});
 
         Family family = new Family(father, mother, pet, children);
-        Human child3 = new Human("Child3", "Akifzade", 2009,
-                112, new String[][]{{DayOfWeek.MONDAY.toString(), "School"},
-                {DayOfWeek.FRIDAY.toString(), "Sport Section"}});
+        Human child3 = new Human("Child3", "Akifzade", 2009, 112, new String[][]{{DayOfWeek.MONDAY.toString(), HumanActivity.SCHOOL.toString()}, {DayOfWeek.FRIDAY.toString(), HumanActivity.GYM.toString()}});
 
         family.addChild(child3);
         System.out.println(family.countFamily());

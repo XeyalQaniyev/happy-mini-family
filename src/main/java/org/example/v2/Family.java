@@ -2,7 +2,6 @@ package org.example.v2;
 
 import java.util.Arrays;
 import java.util.Objects;
-import java.util.Random;
 
 public class Family {
     static {
@@ -12,7 +11,7 @@ public class Family {
     private Human father;
     private Human mother;
     private Pet pet;
-    private Human [] children = new Human[0];
+    private Human[] children = new Human[0];
 
     {
         System.out.println("Family object is created");
@@ -35,16 +34,17 @@ public class Family {
         this.mother = mother;
         this.pet = pet;
     }
+
     public void addChild(Human child) {
         Human[] newChildren;
-             newChildren = new Human[children.length + 1];
-            System.arraycopy(children, 0, newChildren, 0, children.length);
-            newChildren[children.length] = child;
+        newChildren = new Human[children.length + 1];
+        System.arraycopy(children, 0, newChildren, 0, children.length);
+        newChildren[children.length] = child;
         children = newChildren;
     }
 
     public void deleteChildByIndex(int childIndex) {
-        if (children.length-1<childIndex) return;
+        if (children.length - 1 < childIndex) return;
 
         Human[] newChildren = new Human[children.length - 1];
         int count = 0;
@@ -77,30 +77,6 @@ public class Family {
 
     public int countFamily() {
         return 2 + children.length;
-    }
-
-    public void greetPet() {
-        System.out.printf("Hello, %s\n", pet.getNickname());
-    }
-
-    public void describePet() {
-        if (pet.getTrickLevel() >= 50)
-            System.out.printf("I have a %s, he is %s years old, he is very sly \n", pet.getSpecies(), pet.getAge());
-        else
-            System.out.printf("I have a %s, he is %s years old, he is almost not sly \n", pet.getSpecies(), pet.getAge());
-
-    }
-
-    public void feedPet(boolean isfeed) {
-        if (isfeed) {
-            System.out.printf("I feeds %s", pet.getNickname());
-        } else if (!isfeed) {
-            Random r = new Random();
-            int rValue = r.nextInt(101);
-            if (pet.getTrickLevel() < rValue) System.out.printf("I think %s is not hungry.", pet.getNickname());
-            else if (pet.getTrickLevel() > rValue)
-                System.out.printf("Hm... I will feed %s", pet.getNickname());
-        }
     }
 
     public Human getFather() {
