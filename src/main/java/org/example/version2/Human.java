@@ -8,7 +8,7 @@ public class Human {
     private String surname;
     private int year;
     private int iq;
-    private WeekDays[][] schedule;
+    private WeekDays_and_Activities[][] schedule;
     private Family family;
 
     public Human() {
@@ -20,7 +20,7 @@ public class Human {
         this.year = year;
     }
 
-    public Human(String name, String surname, int year, int iq, WeekDays[][] schedule) {
+    public Human(String name, String surname, int year, int iq, WeekDays_and_Activities[][] schedule) {
         this.name = name;
         this.surname = surname;
         this.year = year;
@@ -28,11 +28,11 @@ public class Human {
         this.schedule = schedule;
     }
 
-    public WeekDays[][] getSchedule() {
+    public WeekDays_and_Activities[][] getSchedule() {
         return schedule;
     }
 
-    public void setSchedule(WeekDays[][] schedule) {
+    public void setSchedule(WeekDays_and_Activities[][] schedule) {
         this.schedule = schedule;
     }
 

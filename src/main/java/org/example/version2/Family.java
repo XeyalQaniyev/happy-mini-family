@@ -93,7 +93,7 @@ public class Family {
         System.arraycopy(children, index + 1, updatedChildren, index, children.length - index - 1);
         children = updatedChildren;
     }
-
+//
     public int countFamily() {
         return children.length + 2;
     }

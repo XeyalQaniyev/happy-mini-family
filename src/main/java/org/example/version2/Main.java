@@ -3,14 +3,14 @@ package org.example.version2;
 public class Main {
     public static void main(String[] args) {
 
-        WeekDays[][] schedule = {
-                {WeekDays.MONDAY, WeekDays.WORK},
-                {WeekDays.TUESDAY, WeekDays.DEVELOP}
+        WeekDays_and_Activities[][] schedule = {
+                {WeekDays_and_Activities.MONDAY, WeekDays_and_Activities.WORK},
+                {WeekDays_and_Activities.TUESDAY, WeekDays_and_Activities.DEVELOP}
         };
 
-        WeekDays[][] scheduleChild = {
-                {WeekDays.THURSDAY, WeekDays.SCHOOL},
-                {WeekDays.FRIDAY, WeekDays.SPORT}
+        WeekDays_and_Activities[][] scheduleChild = {
+                {WeekDays_and_Activities.THURSDAY, WeekDays_and_Activities.SCHOOL},
+                {WeekDays_and_Activities.FRIDAY, WeekDays_and_Activities.SPORT}
         };
 
         Human father = new Human("Samsung", "Galaxy", 1969, 130, schedule);
@@ -31,9 +31,9 @@ public class Main {
         family.deleteChild(0);
         int countAfter = family.countFamily();
         System.out.println("The number of family members before the child was deleted is " + countBefore);
-        System.out.println("The number of family members after the child was deleted is " + countAfter);
 
         System.out.println(family.toString());
+        System.out.println("The number of family members after the child was deleted is " + countAfter);
 
 //        for (int i= 10_000; i < 10_000_000; i++) {
 //            new Human();
