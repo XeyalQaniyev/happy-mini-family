@@ -1,4 +1,4 @@
-package org.example.version3.classes;
+package org.example.version3.people;
 
 public final class Man extends Human {
 
