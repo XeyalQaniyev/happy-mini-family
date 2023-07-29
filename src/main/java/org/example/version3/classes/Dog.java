@@ -1,4 +1,6 @@
-package org.example.version3;
+package org.example.version3.classes;
+
+import org.example.version3.enums.Species;
 
 public class Dog extends Pet {
     public Dog(String nickname, int age, int trickLevel, String[] habits) {

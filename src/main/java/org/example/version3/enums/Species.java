@@ -1,11 +1,12 @@
-package org.example.version3;
+package org.example.version3.enums;
 
 public enum Species {
-    DOG(true, 4, true),
+    DOG(false, 4, true),
     CAT(false, 4, true),
     BIRD(true, 2, false),
     FISH(false, 0, false),
-    ROBO_CAT(false, 4, false);
+    ROBO_CAT(false, 4, false),
+    UNKNOWN(false, 0, false);
 
     private final boolean canFly;
     private final int numberOfLegs;

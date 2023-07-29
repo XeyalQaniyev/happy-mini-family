@@ -1,5 +1,9 @@
 package org.example.version3;
 
+import org.example.version3.classes.*;
+import org.example.version3.enums.DayOfWeek;
+import org.example.version3.enums.HumanActivity;
+
 import java.util.Arrays;
 
 public class Main {

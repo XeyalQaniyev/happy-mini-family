@@ -1,4 +1,4 @@
-package org.example.version3;
+package org.example.version3.classes;
 
 import java.util.Arrays;
 import java.util.Objects;
