@@ -1,6 +1,7 @@
-package org.example.version3.people;
+package org.example.version3;
 
 import org.example.version3.animals.Pet;
+import org.example.version3.people.Human;
 
 import java.util.Arrays;
 import java.util.Objects;
