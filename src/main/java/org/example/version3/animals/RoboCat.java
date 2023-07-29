@@ -1,8 +1,9 @@
-package org.example.version3.classes;
+package org.example.version3.animals;
 
+import org.example.version3.classes.Pet;
 import org.example.version3.enums.Species;
 
-public class RoboCat extends Pet{
+public class RoboCat extends Pet {
 
     public RoboCat(String nickname, int age, int trickLevel, String[] habits){
         super(nickname, age, trickLevel, habits);

@@ -1,5 +1,9 @@
 package org.example.version3;
 
+import org.example.version3.animals.Dog;
+import org.example.version3.animals.DomesticCat;
+import org.example.version3.animals.Fish;
+import org.example.version3.animals.RoboCat;
 import org.example.version3.classes.*;
 import org.example.version3.enums.DayOfWeek;
 import org.example.version3.enums.HumanActivity;

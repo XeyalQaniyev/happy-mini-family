@@ -1,5 +1,6 @@
-package org.example.version3.classes;
+package org.example.version3.animals;
 
+import org.example.version3.classes.Pet;
 import org.example.version3.enums.Species;
 
 public class Dog extends Pet {
