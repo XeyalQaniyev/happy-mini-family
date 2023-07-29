@@ -1,5 +1,7 @@
 package org.example.version3.classes;
 
+import org.example.version3.animals.Pet;
+
 import java.util.Arrays;
 import java.util.Objects;
 

@@ -1,6 +1,5 @@
 package org.example.version3.animals;
 
-import org.example.version3.classes.Pet;
 import org.example.version3.enums.Species;
 
 public class RoboCat extends Pet {
