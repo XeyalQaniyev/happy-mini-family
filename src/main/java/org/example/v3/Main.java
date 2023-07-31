@@ -4,7 +4,6 @@ import org.example.v3.bean.Family;
 import org.example.v3.bean.FamilyManager;
 import org.example.v3.bean.Human;
 import org.example.v3.bean.Man;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +36,8 @@ public class Main {
         System.out.println("Child's Father: " + child.getFatherName());
         System.out.println("Child's IQ: " + child.getIq());
         System.out.println("Child's Sex: " + (child instanceof Man ? "Male" : "Female"));
+
+
     }
 }
 

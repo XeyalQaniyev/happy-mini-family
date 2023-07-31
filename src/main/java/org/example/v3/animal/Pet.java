@@ -3,20 +3,22 @@ package org.example.v3.animal;
 
 import org.example.v2.PetSpecies;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.Set;
 
 public abstract class Pet {
     private PetSpecies species;
     private String nickname;
     private int age;
     private int trickLevel;
-    private String[] habits;
+    private Set habits;
 
     public Pet() {
     }
 
-    public Pet(PetSpecies species, String nickname, int age, int trickLevel, String[] habits) {
+    public Pet(PetSpecies species, String nickname, int age, int trickLevel,Set habits) {
         this.species = species;
         this.nickname = nickname;
         this.age = age;
@@ -56,13 +58,14 @@ public abstract class Pet {
         this.trickLevel = trickLevel;
     }
 
-    public String[] getHabits() {
+    public Set getHabits() {
         return habits;
     }
 
-    public void setHabits(String[] habits) {
+    public void setHabits(Set habits) {
         this.habits = habits;
     }
+
     public abstract void eat();
     public abstract void foul();
     public abstract void respond();

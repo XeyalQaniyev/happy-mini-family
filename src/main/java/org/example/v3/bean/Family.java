@@ -3,6 +3,7 @@ package org.example.v3.bean;
 import org.example.v3.animal.Pet;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
@@ -14,7 +15,7 @@ public class Family {
     private Human father;
     private Human mother;
     private Pet pet;
-    private Human[] children = new Human[0];
+    private List<Human> children;
 
     {
         System.out.println("Family object is created");
@@ -25,7 +26,8 @@ public class Family {
         this.mother = mother;
     }
 
-    public Family(Human father, Human mother, Pet pet, Human[] children) {
+
+    public Family(Human father, Human mother, Pet pet, List<Human> children) {
         this.father = father;
         this.mother = mother;
         this.pet = pet;
@@ -39,46 +41,17 @@ public class Family {
     }
 
     public void addChild(Human child) {
-        Human[] newChildren;
-        newChildren = new Human[children.length + 1];
-        System.arraycopy(children, 0, newChildren, 0, children.length);
-        newChildren[children.length] = child;
-        children = newChildren;
+
     }
 
-    public void deleteChildByIndex(int childIndex) {
-        if (children.length - 1 < childIndex) return;
-        Human[] newChildren = new Human[children.length - 1];
-        int count = 0;
-        for (int i = 0; i < children.length; i++) {
-            if (i != childIndex) {
-                newChildren[count] = children[i];
-                count++;
-            }
-        }
-        children = newChildren;
+    public void deleteChild(int index) {
+        children.remove(index);
+        System.out.println("Child deleted");
     }
 
-    public boolean deleteChild(int index) {
-        if (index >= 0 && index < children.length) {
-            deleteChildByIndex(index);
-            return true;
-        }
-        return false;
-    }
-
-    public boolean deleteChild(Human child) {
-        for (int i = 0; i < children.length; i++) {
-            if (children[i].equals(child)) {
-                deleteChildByIndex(i);
-                return true;
-            }
-        }
-        return false;
-    }
 
     public int countFamily() {
-        return 2 + children.length;
+        return 2 + children.size();
     }
 
     public void describePet() {
@@ -125,18 +98,22 @@ public class Family {
         this.pet = pet;
     }
 
-    public Human[] getChildren() {
+    public List<Human> getChildren() {
         return children;
     }
 
-    public void setChildren(Human[] children) {
+    public void setChildren(List<Human> children) {
         this.children = children;
     }
 
     @Override
     public String toString() {
-        return "Family{" + "father=" + father + ", mother=" + mother + ", pet=" + pet +
-                ", children=" + Arrays.deepToString(children) + '}';
+        return "Family{" +
+                "father=" + father +
+                ", mother=" + mother +
+                ", pet=" + pet +
+                ", children=" + children +
+                '}';
     }
 
     @Override
@@ -144,16 +121,12 @@ public class Family {
         if (this == o) return true;
         if (!(o instanceof Family)) return false;
         Family family = (Family) o;
-        return Objects.equals(getFather(), family.getFather()) && Objects.equals(getMother(),
-                family.getMother()) && Objects.equals(getPet(),
-                family.getPet()) && Arrays.equals(getChildren(), family.getChildren());
+        return getFather().equals(family.getFather()) && getMother().equals(family.getMother()) && getPet().equals(family.getPet()) && getChildren().equals(family.getChildren());
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(getFather(), getMother(), getPet());
-        result = 31 * result + Arrays.hashCode(getChildren());
-        return result;
+        return Objects.hash(getFather(), getMother(), getPet(), getChildren());
     }
 
     @Override

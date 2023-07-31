@@ -3,8 +3,7 @@ package org.example.v3.bean;
 import org.example.v3.animal.Pet;
 import org.example.v3.enums.DayOfWeek;
 
-import java.util.Arrays;
-import java.util.Objects;
+import java.util.*;
 
 public class Human {
     private String name;
@@ -13,7 +12,7 @@ public class Human {
     private int iq;
     private Family family;
     private String fatherName;
-    private DayOfWeek[][] schedule;
+    private Map<DayOfWeek, List<DayOfWeek>> schedule;
 
     public Human(String name) {
     }
@@ -25,11 +24,14 @@ public class Human {
     }
 
 
-    public Human(String name, String surname, int year, int iq, DayOfWeek[][] schedule) {
+    public Human(String name, String surname, int year, int iq, Family family, String fatherName,
+                 Map<DayOfWeek, List<DayOfWeek>> schedule) {
         this.name = name;
         this.surname = surname;
         this.year = year;
         this.iq = iq;
+        this.family = family;
+        this.fatherName = fatherName;
         this.schedule = schedule;
     }
 
@@ -94,17 +96,25 @@ public class Human {
         this.iq = iq;
     }
 
-    public DayOfWeek[][] getSchedule() {
+    public Map<DayOfWeek, List<DayOfWeek>> getSchedule() {
         return schedule;
     }
 
-    public void setSchedule(DayOfWeek[][] schedule) {
+    public void setSchedule(Map<DayOfWeek, List<DayOfWeek>> schedule) {
         this.schedule = schedule;
     }
 
     @Override
     public String toString() {
-        return "Human{" + "name='" + name + '\'' + ", surname='" + surname + '\'' + ", year=" + year + ", iq=" + iq + ", schedule=" + Arrays.deepToString(schedule) + '}';
+        return "Human{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", year=" + year +
+                ", iq=" + iq +
+                ", family=" + family +
+                ", fatherName='" + fatherName + '\'' +
+                ", schedule=" + schedule +
+                '}';
     }
 
     @Override
@@ -112,14 +122,14 @@ public class Human {
         if (this == o) return true;
         if (!(o instanceof Human)) return false;
         Human human = (Human) o;
-        return getYear() == human.getYear() && getIq() == human.getIq() && Objects.equals(getName(), human.getName()) && Objects.equals(getSurname(), human.getSurname()) && Arrays.equals(getSchedule(), human.getSchedule());
+        return getYear() == human.getYear() && getIq() == human.getIq() && getName().equals(human.getName()) &&
+                getSurname().equals(human.getSurname()) && getFamily().equals(human.getFamily()) &&
+                getFatherName().equals(human.getFatherName()) && getSchedule().equals(human.getSchedule());
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(getName(), getSurname(), getYear(), getIq());
-        result = 31 * result + Arrays.hashCode(getSchedule());
-        return result;
+        return Objects.hash(getName(), getSurname(), getYear(), getIq(), getFamily(), getFatherName(), getSchedule());
     }
 
     @Override
