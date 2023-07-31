@@ -1,4 +1,4 @@
-package org.example.v3.enums;
+package org.example.v4.enums;
 
 public enum PetSpecie {
     DOG(true, 4, true),

@@ -1,8 +1,6 @@
-package org.example.v3.bean;
+package org.example.v4.bean;
 
-import org.example.v3.animal.Pet;
-import org.example.v3.bean.Family;
-import org.example.v3.bean.Human;
+import org.example.v4.animal.Pet;
 
 public final class Man extends Human {
     public void repairCar() {

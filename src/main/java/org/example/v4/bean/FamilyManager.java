@@ -1,8 +1,6 @@
-package org.example.v3.bean;
+package org.example.v4.bean;
 
-import org.example.v3.bean.Man;
-import org.example.v3.bean.Woman;
-import org.example.v3.inter.HumanCreator;
+import org.example.v4.inter.HumanCreator;
 
 import java.util.List;
 import java.util.Random;

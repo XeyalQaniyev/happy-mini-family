@@ -1,6 +1,4 @@
-package org.example.v3.animal;
-
-import org.example.v3.animal.Pet;
+package org.example.v4.animal;
 
 public class RoboCat extends Pet {
     @Override

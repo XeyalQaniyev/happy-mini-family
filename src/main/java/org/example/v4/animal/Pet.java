@@ -1,11 +1,8 @@
-package org.example.v3.animal;
+package org.example.v4.animal;
 
 
 import org.example.v2.PetSpecies;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Objects;
 import java.util.Set;
 
 public abstract class Pet {

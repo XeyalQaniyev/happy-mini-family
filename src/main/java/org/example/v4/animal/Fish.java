@@ -1,4 +1,4 @@
-package org.example.v3.animal;
+package org.example.v4.animal;
 
 public class Fish extends Pet {
     @Override

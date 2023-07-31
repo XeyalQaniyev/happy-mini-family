@@ -1,7 +1,7 @@
-package org.example.v3.bean;
+package org.example.v4.bean;
 
-import org.example.v3.animal.Pet;
-import org.example.v3.enums.DayOfWeek;
+import org.example.v4.animal.Pet;
+import org.example.v4.enums.DayOfWeek;
 
 import java.util.*;
 
