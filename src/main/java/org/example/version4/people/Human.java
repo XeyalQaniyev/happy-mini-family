@@ -1,6 +1,9 @@
 package org.example.version4.people;
 
-import java.util.Arrays;
+import org.example.version4.enums.DayOfWeek;
+import org.example.version4.enums.HumanActivity;
+
+import java.util.Map;
 import java.util.Objects;
 
 public abstract class Human {
@@ -9,7 +12,7 @@ public abstract class Human {
     private String surname;
     private int year;
     private int iq;
-    private String[][] schedule;
+    private Map<DayOfWeek, HumanActivity> schedule;
 
     public Human() {
     }
@@ -20,7 +23,7 @@ public abstract class Human {
         this.year = year;
     }
 
-    public Human(String name, String surname, int year, int iq, String[][] schedule) {
+    public Human(String name, String surname, int year, int iq, Map<DayOfWeek, HumanActivity> schedule) {
         this.name = name;
         this.surname = surname;
         this.year = year;
@@ -60,11 +63,11 @@ public abstract class Human {
         this.iq = iq;
     }
 
-    public String[][] getSchedule() {
+    public Map<DayOfWeek, HumanActivity> getSchedule() {
         return schedule;
     }
 
-    public void setSchedule(String[][] schedule) {
+    public void setSchedule(Map<DayOfWeek, HumanActivity> schedule) {
         this.schedule = schedule;
     }
 
@@ -73,7 +76,7 @@ public abstract class Human {
     @Override
     public String toString() {
         return "Human{" + "name='" + name + '\'' + ", surname='" + surname + '\'' +
-                ", year=" + year + ", iq=" + iq + ", schedule=" + Arrays.deepToString(schedule) + '}';
+                ", year=" + year + ", iq=" + iq + ", schedule=" + schedule + '}';
     }
 
     @Override
@@ -87,7 +90,7 @@ public abstract class Human {
     @Override
     public int hashCode() {
         int result = Objects.hash(name, surname, year, iq);
-        result = 31 * result + Arrays.hashCode(schedule);
+        result = 31 * result + schedule.hashCode();
         return result;
     }
 
