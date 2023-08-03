@@ -95,8 +95,8 @@ public class Main {
         man.repairCar();
         woman.makeup();
 
-        System.out.println(father.toString());
-        System.out.println(mother.toString());
+        System.out.println(father);
+        System.out.println(mother);
         System.out.println(Arrays.toString(children));
         System.out.println(" ");
 
@@ -124,12 +124,13 @@ public class Main {
         roboCat.describePet();
 
 
-//        DayOfWeek nextDay = DayOfWeek.SUNDAY;
-//        System.out.println("Tomorrow is: " + nextDay.name());
-
-//        for (int i = 0; i < 1000000000; i++) {
-//            father.finalize();
-//        }
+/*
+        DayOfWeek nextDay = DayOfWeek.SUNDAY;
+        System.out.println("Tomorrow is: " + nextDay.name());
+        for (int i = 0; i < 1000000000; i++) {
+            father.finalize();
+        }
+*/
 
     }
 }
