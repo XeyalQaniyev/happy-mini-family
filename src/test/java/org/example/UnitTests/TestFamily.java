@@ -109,8 +109,6 @@ public class TestFamily {
             }
         });
 
-//        Assertions.assertEquals(family1, family2);
-//        Assertions.assertEquals(family1.hashCode(), family2.hashCode());
     }
 
     @Test
