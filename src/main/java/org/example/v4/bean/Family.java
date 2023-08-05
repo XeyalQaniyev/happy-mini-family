@@ -16,15 +16,9 @@ public class Family {
     private Pet pet;
     private List<Human> children;
 
-    {
+    static {
         System.out.println("Family object is created");
     }
-
-    public Family() {
-        this.father = father;
-        this.mother = mother;
-    }
-
 
     public Family(Human father, Human mother, Pet pet, List<Human> children) {
         this.father = father;
@@ -37,6 +31,10 @@ public class Family {
         this.father = father;
         this.mother = mother;
         this.pet = pet;
+    }
+
+    public Family() {
+
     }
 
     public void addChild(Human child) {

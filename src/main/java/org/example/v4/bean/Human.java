@@ -2,6 +2,7 @@ package org.example.v4.bean;
 
 import org.example.v4.animal.Pet;
 import org.example.v4.enums.DayOfWeek;
+import org.example.v4.enums.HumanActivity;
 
 import java.util.*;
 
@@ -12,7 +13,7 @@ public class Human {
     private int iq;
     private Family family;
     private String fatherName;
-    private Map<DayOfWeek, List<DayOfWeek>> schedule;
+    private Map<DayOfWeek, List<HumanActivity>> schedule;
 
     public Human(String name) {
     }
@@ -24,8 +25,7 @@ public class Human {
     }
 
 
-    public Human(String name, String surname, int year, int iq, Family family, String fatherName,
-                 Map<DayOfWeek, List<DayOfWeek>> schedule) {
+    public Human(String name, String surname, int year, int iq, Family family, String fatherName, Map<DayOfWeek, List<HumanActivity>> schedule) {
         this.name = name;
         this.surname = surname;
         this.year = year;
@@ -96,11 +96,11 @@ public class Human {
         this.iq = iq;
     }
 
-    public Map<DayOfWeek, List<DayOfWeek>> getSchedule() {
+    public Map<DayOfWeek, List<HumanActivity>> getSchedule() {
         return schedule;
     }
 
-    public void setSchedule(Map<DayOfWeek, List<DayOfWeek>> schedule) {
+    public void setSchedule(Map<DayOfWeek, List<HumanActivity>> schedule) {
         this.schedule = schedule;
     }
 
