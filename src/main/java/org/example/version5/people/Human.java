@@ -1,8 +1,7 @@
-package org.example.version4.people;
-//list of human activity
-//
-import org.example.version4.enums.DayOfWeek;
-import org.example.version4.enums.HumanActivity;
+package org.example.version5.people;
+
+import org.example.version5.enums.DayOfWeek;
+import org.example.version5.enums.HumanActivity;
 
 import java.util.Map;
 import java.util.Objects;

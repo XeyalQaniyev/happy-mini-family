@@ -1,7 +1,7 @@
-package org.example.version4;
+package org.example.version5;
 
-import org.example.version4.animals.Pet;
-import org.example.version4.people.Human;
+import org.example.version5.animals.Pet;
+import org.example.version5.people.Human;
 
 import java.util.*;
 
@@ -10,13 +10,13 @@ public class Family {
     private Human father;
     private Human mother;
     private Set<Pet> pets;
-    private List<Human> children;
+    private List<String> children;
 
     public Family() {
         children = new ArrayList<>();
     }
 
-    public void addChild(Human child) {
+    public void addChild(String child) {
         children.add(child);
     }
 
@@ -24,7 +24,7 @@ public class Family {
         children.remove(child);
     }
 
-    public Family(Human father, Human mother, Set<Pet> pets, List<Human> childrenList) {
+    public Family(Human father, Human mother, Set<Pet> pets, List<String> childrenList) {
         this.father = father;
         this.mother = mother;
         this.pets = pets;
@@ -35,9 +35,9 @@ public class Family {
         this(father, mother, new HashSet<>(), new ArrayList<>());
     }
 
-//    public void addChild(Human child) {
-//        children.add(String.valueOf(child));
-//    }
+    public void addChild(Human child) {
+        children.add(String.valueOf(child));
+    }
 
     public boolean deleteChildByIndex(int childIndex) {
         if (childIndex >= 0 && childIndex < children.size()) {
@@ -92,11 +92,11 @@ public class Family {
         this.pets = pets;
     }
 
-    public List<Human> getChildren() {
+    public List<String> getChildren() {
         return children;
     }
 
-    public void setChildren(List<Human> children) {
+    public void setChildren(List<String> children) {
         this.children = children;
     }
 

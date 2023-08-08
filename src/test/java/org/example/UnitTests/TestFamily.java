@@ -2,15 +2,15 @@ package org.example.UnitTests;
 
 import org.example.version4.Family;
 import org.example.version4.animals.Pet;
+import org.example.version4.enums.DayOfWeek;
+import org.example.version4.enums.HumanActivity;
 import org.example.version4.enums.Species;
 import org.example.version4.people.Human;
+import org.example.version4.people.Man;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class TestFamily {
 
@@ -33,9 +33,9 @@ public class TestFamily {
         family.addChild(child2);
         Assertions.assertEquals(2, family.getChildren().size());
         family.deleteChild(child1);
-        Assertions.assertEquals(2, family.getChildren().size());
+        Assertions.assertEquals(1, family.getChildren().size());
         family.deleteChild(child2);
-        Assertions.assertEquals(2, family.getChildren().size());
+        Assertions.assertEquals(0, family.getChildren().size());
     }
 
     @Test
@@ -150,7 +150,7 @@ public class TestFamily {
 
             }
         });
-        List<String> children = List.of("John", "Jane");
+        List<Human> children = List.of(new Man("Asus", "iPixel", 2009, 112, Collections.singletonMap(DayOfWeek.MONDAY, HumanActivity.SCHOOL)));
         family.setFather(father);
         family.setMother(mother);
         family.setPets(pets);

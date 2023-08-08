@@ -1,14 +1,13 @@
-package org.example.version4;
+package org.example.version5;
 
-import org.example.version4.animals.*;
-import org.example.version4.enums.DayOfWeek;
-import org.example.version4.enums.HumanActivity;
-import org.example.version4.people.Human;
-import org.example.version4.people.Man;
-import org.example.version4.people.Woman;
+import org.example.version5.animals.*;
+import org.example.version5.enums.DayOfWeek;
+import org.example.version5.enums.HumanActivity;
+import org.example.version5.people.Human;
+import org.example.version5.people.Man;
+import org.example.version5.people.Woman;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) throws Throwable {
@@ -81,8 +80,8 @@ public class Main {
             }
         });
 
-        List<Human> childrenNames = new ArrayList<>();
-        children.forEach(child -> childrenNames.add(child));
+        List<String> childrenNames = new ArrayList<>();
+        children.forEach(child -> childrenNames.add(child.getName()));
 
         System.out.println(childrenNames);
 
