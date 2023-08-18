@@ -1,6 +1,6 @@
 package org.example.version5.enums;
 
-public enum HumanActivity {
+public enum Human_Activity {
     WALKING,
     WORKING,
     GAMEPLAY,

@@ -1,10 +1,11 @@
 package org.example.version5.animals;
 
 import org.example.version5.enums.Species;
+import org.example.version5.objects.Pet;
 
-public class RoboCat extends Pet {
+public class Robo_Cat extends Pet {
 
-    public RoboCat(String nickname, int age, int trickLevel, String[] habits){
+    public Robo_Cat(String nickname, int age, int trickLevel, String[] habits){
         super(nickname, age, trickLevel, habits);
     }
 
@@ -20,6 +21,6 @@ public class RoboCat extends Pet {
 
     @Override
     public void foul() {
-        System.out.println("RoboCat has fouled, I need to cover it up!");
+        System.out.println("Robo_Cat has fouled, I need to cover it up!");
     }
 }

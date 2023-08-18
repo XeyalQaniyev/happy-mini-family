@@ -1,4 +1,4 @@
-package org.example.version5.animals;
+package org.example.version5.objects;
 
 import org.example.version5.enums.Species;
 

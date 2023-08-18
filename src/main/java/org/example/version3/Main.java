@@ -122,7 +122,7 @@ public class Main {
         roboCat.describePet();
 
 
-//        DayOfWeek nextDay = DayOfWeek.SUNDAY;
+//        Day_Of_Week nextDay = Day_Of_Week.SUNDAY;
 //        System.out.println("Tomorrow is: " + nextDay.name());
 
 //        for (int i = 0; i < 1000000000; i++) {

@@ -20,6 +20,6 @@ public class RoboCat extends Pet {
 
     @Override
     public void foul() {
-        System.out.println("RoboCat has fouled, I need to cover it up!");
+        System.out.println("Robo_Cat has fouled, I need to cover it up!");
     }
 }

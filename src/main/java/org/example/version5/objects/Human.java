@@ -1,8 +1,9 @@
-package org.example.version5.people;
+package org.example.version5.objects;
 
-import org.example.version5.enums.DayOfWeek;
-import org.example.version5.enums.HumanActivity;
+import org.example.version5.enums.Day_Of_Week;
+import org.example.version5.enums.Human_Activity;
 
+import java.util.Calendar;
 import java.util.Map;
 import java.util.Objects;
 
@@ -12,7 +13,7 @@ public abstract class Human {
     private String surname;
     private int year;
     private int iq;
-    private Map<DayOfWeek, HumanActivity> schedule;
+    private Map<Day_Of_Week, Human_Activity> schedule;
 
     public Human() {
     }
@@ -23,7 +24,7 @@ public abstract class Human {
         this.year = year;
     }
 
-    public Human(String name, String surname, int year, int iq, Map<DayOfWeek, HumanActivity> schedule) {
+    public Human(String name, String surname, int year, int iq, Map<Day_Of_Week, Human_Activity> schedule) {
         this.name = name;
         this.surname = surname;
         this.year = year;
@@ -63,15 +64,19 @@ public abstract class Human {
         this.iq = iq;
     }
 
-    public Map<DayOfWeek, HumanActivity> getSchedule() {
+    public Map<Day_Of_Week, Human_Activity> getSchedule() {
         return schedule;
     }
 
-    public void setSchedule(Map<DayOfWeek, HumanActivity> schedule) {
+    public void setSchedule(Map<Day_Of_Week, Human_Activity> schedule) {
         this.schedule = schedule;
     }
 
     public abstract void greetPet();
+
+    public int getAge() {
+        return Calendar.getInstance().get(Calendar.YEAR) - year;
+    }
 
     @Override
     public String toString() {
@@ -98,4 +103,5 @@ public abstract class Human {
     protected void finalize() throws Throwable {
         System.out.println("GC is running in Human class");
     }
+
 }

@@ -1,6 +1,5 @@
 package org.example.version4.people;
-//list of human activity
-//
+
 import org.example.version4.enums.DayOfWeek;
 import org.example.version4.enums.HumanActivity;
 

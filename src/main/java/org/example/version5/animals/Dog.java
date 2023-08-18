@@ -1,6 +1,7 @@
 package org.example.version5.animals;
 
 import org.example.version5.enums.Species;
+import org.example.version5.objects.Pet;
 
 public class Dog extends Pet {
     public Dog(String nickname, int age, int trickLevel, String[] habits) {

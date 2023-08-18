@@ -1,7 +1,4 @@
-package org.example.version5;
-
-import org.example.version5.animals.Pet;
-import org.example.version5.people.Human;
+package org.example.version5.objects;
 
 import java.util.*;
 
@@ -10,33 +7,24 @@ public class Family {
     private Human father;
     private Human mother;
     private Set<Pet> pets;
-    private List<String> children;
+    private List<Human> children;
 
     public Family() {
         children = new ArrayList<>();
     }
 
-    public void addChild(String child) {
-        children.add(child);
-    }
-
-    public void deleteChild(String child) {
-        children.remove(child);
-    }
-
-    public Family(Human father, Human mother, Set<Pet> pets, List<String> childrenList) {
+    public Family(Human father, Human mother, Set<Pet> pets, List<Human> children) {
         this.father = father;
         this.mother = mother;
         this.pets = pets;
-        this.children = childrenList;
+        this.children = children;
     }
 
     public Family(Human father, Human mother) {
-        this(father, mother, new HashSet<>(), new ArrayList<>());
     }
 
     public void addChild(Human child) {
-        children.add(String.valueOf(child));
+        children.add(child);
     }
 
     public boolean deleteChildByIndex(int childIndex) {
@@ -88,18 +76,13 @@ public class Family {
         return pets;
     }
 
-    public void setPets(Set<Pet> pets) {
-        this.pets = pets;
-    }
-
-    public List<String> getChildren() {
+    public List<Human> getChildren() {
         return children;
     }
 
-    public void setChildren(List<String> children) {
+    public void setChildren(List<Human> children) {
         this.children = children;
     }
-
 
     @Override
     public String toString() {
